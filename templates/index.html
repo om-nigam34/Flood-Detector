@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flood Guard Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div id="alert-banner" class="alert-banner hidden">
+    <span id="alert-icon">⚠</span>
+    <span id="alert-text">—</span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🌊</span>
+      <div>
+        <h1>Flood Guard</h1>
+        <p class="subtitle">LoRa Flood Detection &amp; Emergency Alert Dashboard</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div id="connection" class="pill pill-muted">No data yet</div>
+      <div id="last-updated" class="muted-text">—</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="status-row">
+      <div id="status-card" class="status-card status-normal">
+        <div class="status-label">System Status</div>
+        <div id="status-value" class="status-value">NORMAL</div>
+        <div id="status-node" class="muted-text">node-1</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-icon">📏</div>
+          <div class="metric-label">Water Depth</div>
+          <div class="metric-value"><span id="m-depth">--</span> <small>cm</small></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">💧</div>
+          <div class="metric-label">Flow Rate</div>
+          <div class="metric-value"><span id="m-flow">--</span> <small>L/min</small></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">🌡️</div>
+          <div class="metric-label">Temperature</div>
+          <div class="metric-value"><span id="m-temp">--</span> <small>°C</small></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">💦</div>
+          <div class="metric-label">Humidity</div>
+          <div class="metric-value"><span id="m-hum">--</span> <small>%</small></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">🔋</div>
+          <div class="metric-label">Battery</div>
+          <div class="metric-value"><span id="m-batt">--</span> <small>V</small></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">📶</div>
+          <div class="metric-label">Signal (RSSI)</div>
+          <div class="metric-value"><span id="m-rssi">--</span> <small>dBm</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h2>Water Depth — Recent History</h2>
+      <canvas id="depth-chart" height="90"></canvas>
+    </section>
+
+    <section class="alerts-section">
+      <h2>Alert Log</h2>
+      <ul id="alert-log" class="alert-log">
+        <li class="muted-text">No alerts yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Data posts to <code>/api/telemetry</code> from the LoRa receiver (ESP32). Auto-refreshes every 3s.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
