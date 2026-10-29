@@ -1,16 +1,10 @@
-"""
-Flood Guard Dashboard - backend
-Receives telemetry from the ESP32 receiver (water depth, flow rate,
-temperature, humidity, battery, signal strength) over HTTP POST,
-stores it, and serves a live dashboard + REST API for the frontend.
+# Flood Guard Dashboard - backend
+# Receives telemetry from the ESP32 receiver (water depth, flow rate,
+# temperature, humidity, battery, signal strength) over HTTP POST,
+# stores it, and serves a live dashboard + REST API for the frontend.
 
-Run:
-    pip install flask requests
-    python app.py
-
-Server listens on 0.0.0.0:5000 so devices on the same network
-(including the ESP32 receiver) can reach it.
-"""
+# Server listens on 0.0.0.0:5000 so devices on the same network
+# (including the ESP32 receiver) can reach it.
 
 import os
 import sqlite3
@@ -36,7 +30,7 @@ CRITICAL_DEPTH_CM = 100
 app = Flask(__name__)
 
 
-# ---------------------------------------------------------------- DB
+# DB
 
 def get_db():
     if "db" not in g:
