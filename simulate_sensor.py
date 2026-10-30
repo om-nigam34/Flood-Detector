@@ -1,10 +1,8 @@
-"""
-Sensor simulator — stands in for the real ESP32 receiver so you can
-test the dashboard end-to-end before hardware is wired up.
+# Sensor simulator — stands in for the real ESP32 receiver so you can
+# test the dashboard end-to-end before hardware is wired up.
 
-Run (server must already be running):
-    python simulate_sensor.py
-"""
+# Run (server must already be running):
+# python simulate_sensor.py
 
 import argparse
 import math
