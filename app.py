@@ -79,13 +79,13 @@ def init_db():
         db.commit()
 
 
-# ------------------------------------------------------------ helpers
+# helpers
 
 def classify(water_depth_cm, declared_status=None):
-    """Decide normal / warning / critical.
-    Trusts a status the device already computed, unless the raw
-    depth clearly disagrees (defence in depth), otherwise falls
-    back to the server-side thresholds."""
+    # Decide normal / warning / critical.
+    # Trusts a status the device already computed, unless the raw
+    # depth clearly disagrees (defence in depth), otherwise falls
+    # back to the server-side thresholds.
     if water_depth_cm is None:
         return declared_status or "normal"
 
@@ -105,7 +105,7 @@ def row_to_dict(row):
     return d
 
 
-# -------------------------------------------------------------- routes
+# routes
 
 @app.route("/")
 def dashboard():
