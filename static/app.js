@@ -1,5 +1,5 @@
 const POLL_MS = 3000;
-const NODE_ID = "node-1"; // change if you deploy multiple sensor nodes
+const NODE_ID = "node-1";
 
 const el = (id) => document.getElementById(id);
 
@@ -90,7 +90,7 @@ async function fetchAlerts() {
     .join("");
 }
 
-// ---- minimal dependency-free line chart ----
+// minimal dependency-free line chart 
 function drawChart(rows) {
   const canvas = el("depth-chart");
   const ctx = canvas.getContext("2d");
